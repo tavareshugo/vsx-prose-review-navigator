@@ -1,0 +1,81 @@
+{
+  "name": "prose-review-navigator",
+  "displayName": "Prose Review Navigator",
+  "description": "Navigate REVIEW markers in the active teaching-material document.",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "proseReviewNavigator",
+          "title": "Prose Review",
+          "icon": "resources/review.svg"
+        }
+      ]
+    },
+    "views": {
+      "proseReviewNavigator": [
+        {
+          "id": "proseReviewNavigator.findings",
+          "name": "Review Findings"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "proseReviewNavigator.reveal",
+        "title": "Reveal Review Finding",
+        "category": "Prose Review"
+      },
+      {
+        "command": "proseReviewNavigator.expandAll",
+        "title": "Expand All Categories",
+        "category": "Prose Review",
+        "icon": "$(expand-all)"
+      },
+      {
+        "command": "proseReviewNavigator.collapseAll",
+        "title": "Collapse All Categories",
+        "category": "Prose Review",
+        "icon": "$(collapse-all)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "proseReviewNavigator.expandAll",
+          "group": "navigation@1",
+          "when": "view == proseReviewNavigator.findings && proseReviewNavigator.hasCategories && proseReviewNavigator.allCategoriesCollapsed"
+        },
+        {
+          "command": "proseReviewNavigator.collapseAll",
+          "group": "navigation@1",
+          "when": "view == proseReviewNavigator.findings && proseReviewNavigator.hasCategories && !proseReviewNavigator.allCategoriesCollapsed"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "test": "npm run compile && node --test out/test/reviewParser.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/vscode": "^1.95.0",
+    "typescript": "^5.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tavareshugo/vsx-prose-review-navigator.git"
+  }
+}
