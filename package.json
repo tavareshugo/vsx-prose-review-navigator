@@ -66,6 +66,7 @@
   },
   "scripts": {
     "compile": "tsc -p .",
+    "vscode:prepublish": "npm run compile",
     "watch": "tsc -watch -p .",
     "test": "npm run compile && node --test out/test/reviewParser.test.js"
   },
