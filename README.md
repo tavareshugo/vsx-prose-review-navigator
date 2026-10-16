@@ -1,6 +1,7 @@
 # Prose Review Navigator
 
-[![MIT license](https://img.shields.io/badge/license-MIT-blue)](LICENSE) ![AI-built](https://img.shields.io/badge/ai-built-a08bff)
+[![MIT license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+![AI-built](https://img.shields.io/badge/ai-built%20with%20copilot-a08bff)
 
 Prose Review Navigator shows `REVIEW:START` / `REVIEW:END` annotations in the active Markdown, Quarto, or R Markdown document.
 
